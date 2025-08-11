@@ -19,46 +19,7 @@
   gtag('js', new Date());
   gtag('config', 'G-622CWCXV7F');
 </script>
-	
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const userAgent = navigator.userAgent;
-    const token = sessionStorage.getItem("lz_token");
 
-    const esAndroid = /Android/i.test(userAgent);
-    const esIOS = /iPhone|iPad|iPod/i.test(userAgent);
-    const esAppOriginal = /Vinebre/i.test(userAgent);
-    const esPC = !esAndroid && !esIOS;
- const esExcepcion = sessionStorage.getItem("excepcion_android") === "1";
-
-if (esAndroid && !esAppOriginal && !esExcepcion) {
-  alert("Esta version no es oficial...");
-  window.location.href = "https://lzrdrgz01.github.io/download-LzPlay/";
-  return;
-}
-
-
-    if (esAndroid && esAppOriginal && token !== "acceso_valido") {
-      alert("Acceso no autorizado. Inicia sesion desde la app.");
-      window.location.href = "https://lzrdrgz01.github.io/download-LzPlay/";
-      return;
-    }
-
-    if (esPC && token !== "clave_pc_valida") {
-      const clave = prompt("Ingresa la contra para acceder:");
-      if (clave === "TuClaveSegura") {
-        sessionStorage.setItem("lz_token", "clave_pc_valida");
-        alert("Acceso concedido desde PC.");
-      } else {
-        alert("Contra incorrecta.");
-        window.location.href = "https://lzrdrgz01.github.io/error/";
-        return;
-      }
-    }
-
-   
-  });
-</script>
 
 </head>
 <body class="text-white min-h-screen overflow-x-hidden">
@@ -776,4 +737,5 @@ if (esAndroid && !esAppOriginal && !esExcepcion) {
 
 <script src="script.js"></script>
 </body>
+
 </html>
