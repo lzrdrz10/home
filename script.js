@@ -130,14 +130,15 @@
       }
     });
   });
-   const btnUsuario = document.getElementById('btnUsuario');
-  const iconoImg = document.getElementById('iconoImg');
 
-  const iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
 
-  iconoImg.src = iconoGuardado;
+const btnUsuario = document.getElementById('menuButtonContainer'); // botón o contenedor clickeable
+const iconoImg = document.getElementById('iconoImg');
 
-  // Cambia el enlace por el destino deseado
-  btnUsuario.addEventListener('click', () => {
-    window.location.href = 'https://ajustes.html';
-  });
+const iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
+
+iconoImg.src = iconoGuardado;
+
+btnUsuario.addEventListener('click', () => {
+  window.location.href = 'ajustes.html';
+});
