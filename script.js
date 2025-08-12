@@ -132,13 +132,20 @@
   });
 
 
-const btnUsuario = document.getElementById('menuButtonContainer'); // botón o contenedor clickeable
-const iconoImg = document.getElementById('iconoImg');
+  var btnUsuario = document.getElementById('menuButtonContainer');
+  var iconoImg = document.getElementById('iconoImg');
+  
+  // Carga el icono guardado o uno por defecto
+  var iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
+  iconoImg.src = iconoGuardado;
 
-const iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
-
-iconoImg.src = iconoGuardado;
-
-btnUsuario.addEventListener('click', () => {
-  window.location.href = 'ajustes.html';
-});
+  // Al hacer clic o Enter en el icono, ir a ajustes.html
+  btnUsuario.addEventListener('click', function() {
+    window.location.href = 'ajustes.html';
+  });
+  btnUsuario.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      btnUsuario.click();
+    }
+  });
