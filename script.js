@@ -130,21 +130,14 @@
       }
     });
   });
-  
-  document.addEventListener('DOMContentLoaded', () => {
-  const btnUsuario = document.getElementById('btnUsuario');
+   const btnUsuario = document.getElementById('btnUsuario');
   const iconoImg = document.getElementById('iconoImg');
 
   const iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
 
-  if (iconoImg) {
-    iconoImg.src = iconoGuardado;
-  }
+  iconoImg.src = iconoGuardado;
 
-  if (btnUsuario) {
-    btnUsuario.addEventListener('click', () => {
-      window.location.href = 'ajustes.html';
-    });
-  }
-});
-
+  // Cambia el enlace por el destino deseado
+  btnUsuario.addEventListener('click', () => {
+    window.location.href = 'https://ajustes.html';
+  });
