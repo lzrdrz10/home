@@ -131,14 +131,21 @@
     });
   });
   
-   const btnUsuario = document.getElementById('btnUsuario');
-  const iconoImg = document.getElementById('iconoImg');
+  // Obtiene los elementos del DOM
+const btnUsuario = document.getElementById('btnUsuario');
+const iconoImg = document.getElementById('iconoImg');
 
-  const iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
+// Obtiene la imagen guardada en localStorage o pone una por defecto
+const iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
 
+// Asigna la imagen guardada al src del icono
+if (iconoImg) {
   iconoImg.src = iconoGuardado;
+}
 
-  // Cambia el enlace por el destino deseado
+// Al hacer clic en el botón de usuario, redirige a ajustes.html
+if (btnUsuario) {
   btnUsuario.addEventListener('click', () => {
-    window.location.href = 'https://tu-enlace-aqui.com';
+    window.location.href = 'ajustes.html';
   });
+}
