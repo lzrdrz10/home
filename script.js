@@ -131,21 +131,20 @@
     });
   });
   
-  // Obtiene los elementos del DOM
-const btnUsuario = document.getElementById('btnUsuario');
-const iconoImg = document.getElementById('iconoImg');
+  document.addEventListener('DOMContentLoaded', () => {
+  const btnUsuario = document.getElementById('btnUsuario');
+  const iconoImg = document.getElementById('iconoImg');
 
-// Obtiene la imagen guardada en localStorage o pone una por defecto
-const iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
+  const iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
 
-// Asigna la imagen guardada al src del icono
-if (iconoImg) {
-  iconoImg.src = iconoGuardado;
-}
+  if (iconoImg) {
+    iconoImg.src = iconoGuardado;
+  }
 
-// Al hacer clic en el botón de usuario, redirige a ajustes.html
-if (btnUsuario) {
-  btnUsuario.addEventListener('click', () => {
-    window.location.href = 'ajustes.html';
-  });
-}
+  if (btnUsuario) {
+    btnUsuario.addEventListener('click', () => {
+      window.location.href = 'ajustes.html';
+    });
+  }
+});
+
