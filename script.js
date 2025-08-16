@@ -64,67 +64,16 @@ modal.addEventListener('click', function(e) {
   if (e.target === modal) modal.classList.add('hidden');
 });
 
-// Menu lateral y acordeones
-var menuToggle = document.getElementById('menuToggle');
-var accordionMenu = document.getElementById('accordionMenu');
-var menuBackdrop = document.getElementById('menuBackdrop');
-var menuButtonContainer = document.getElementById('menuButtonContainer');
-
-function openMenu() {
-  accordionMenu.classList.remove('-translate-x-full');
-  menuToggle.classList.add('open');
-  menuBackdrop.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-  menuButtonContainer.classList.add('move-right');
+// Mostrar icono usuario del localStorage
+var iconoGuardado = localStorage.getItem('iconoUsuario');
+if(iconoGuardado){
+  document.getElementById('iconoImg').src = iconoGuardado;
+} else {
+  document.getElementById('iconoImg').src = 'https://i.imgur.com/mRK9uvR.png';
 }
 
-function closeMenu() {
-  accordionMenu.classList.add('-translate-x-full');
-  menuToggle.classList.remove('open');
-  menuBackdrop.classList.add('hidden');
-  document.body.style.overflow = '';
-  menuButtonContainer.classList.remove('move-right');
-
-  document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-  document.querySelectorAll('.accordion-header i').forEach(ic => ic.classList.remove('rotated'));
-}
-
-menuToggle.addEventListener('click', function () {
-  if (accordionMenu.classList.contains('-translate-x-full')) openMenu();
-  else closeMenu();
-});
-
-menuBackdrop.addEventListener('click', closeMenu);
-
-document.querySelectorAll('.accordion-header').forEach(function(header) {
-  header.addEventListener('click', function() {
-    var content = this.nextElementSibling;
-    var icon = this.querySelector('i');
-    var isOpen = content.classList.contains('open');
-
-    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-    document.querySelectorAll('.accordion-header i').forEach(ic => ic.classList.remove('rotated'));
-
-    if (!isOpen) {
-      content.classList.add('open');
-      icon.classList.add('rotated');
-    }
-  });
-});
-
-// Usuario
-const btnUsuario = document.getElementById('btnUsuario');
-const iconoImg = document.getElementById('iconoImg');
-
-// Cargar icono guardado
-const iconoGuardado = localStorage.getItem('iconoUsuario') || "https://i.pinimg.com/564x/b2/a0/29/b2a029a6c2757e9d3a09265e3d07d49d.jpg";
-iconoImg.src = iconoGuardado;
-
-// Redirigir a ajustes.html al tocar usuario
-btnUsuario.addEventListener('click', () => {
+// Redireccionar al dar clic en el botón
+var btnUsuario = document.getElementById('btnUsuario');
+btnUsuario.addEventListener('click', function(){
   window.location.href = 'ajustes.html';
 });
-
-// Si quieres, también puedes cargar nombrePerfil en algún elemento del index
-const nombrePerfil = localStorage.getItem('nombrePerfil') || "Usuario Demo";
-// Ejemplo: document.getElementById('nombreUsuario').textContent = nombrePerfil;
